@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% include 'compte/navbar.html' %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+        crossorigin="anonymous">
+  <title>Suivi Profil</title>
+</head>
+<body style="background-image: url('https://i.pinimg.com/originals/62/63/5b/62635bfd6f5c20e3666f27e015191bde.jpg');">
+  <div class="card" style="text-align: center; width: fit-content; margin: 10px; background-color: rgba(63, 172, 154, 0.37);">
+    <div class="card-body">
+      
+      <h1 class="card-title" style="text-align: center;"> Vous etes sur le profil de  {{enf.name}} {{enf.prenom}}</h1>
+        
+      </div>
+</div>
+<div class="card" style="text-align: center; width: fit-content; margin: 10px; background-color: rgba(53, 216, 189, 0.137);">
+  <div class="card-body" style="text-align: center;"> 
+    
+    <h1> Quelle  service vous voulez consulter </h1>
+      
+    </div>
+</div>
+
+<a class="btn btn-primary btn-sm btm-block" href="{% url 'Suivi_Fotfait' %}">Forfait</a>
+<a class="btn btn-primary btn-sm btm-block" href="{% url 'Suivi_Can' %}">Cantine</a>
+<a class="btn btn-primary btn-sm btm-block" href="{% url 'Suivi_Trans' %}">Transport</a>
+<a class="btn btn-primary btn-sm btm-block" href="{% url 'Suivi_Garde' %}">Service de garde</a>
+<a class="btn btn-primary btn-sm btm-block" href="{% url 'Suivi_Assur' %}">Assurance
+</a>
+</body>
+</html>

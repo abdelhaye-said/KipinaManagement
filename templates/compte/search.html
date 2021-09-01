@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+{% include 'compte/navbar.html' %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+        crossorigin="anonymous">
+  <title>Cantine</title>
+</head>
+<body style="background-image: url('https://i.pinimg.com/originals/62/63/5b/62635bfd6f5c20e3666f27e015191bde.jpg');">
+
+
+
+
+<div class="container">
+ {% if searched %}   
+ <div class="row">
+    <div class="col-md-12">
+        <h5>YOU SEARCHED FOR {{searched}}<h/h5>
+        <hr>
+        <div class="card card-body">
+            
+            <table>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Prenom
+                    </th>
+                    <th>
+                        Classe
+                    </th>
+                    <th>
+                        Update
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+                {% for i in enf %}
+                <tr>
+                    <th>
+                        {{i.name}}
+                    </th>
+                    <th> {{i.prenom}}</th>
+                    <th>{{i.claSSe}}</th>
+                    <th class="btn btn-sm btn-info"> Update</th>
+                    <th></th>
+                    <th class="btn btn-sm btn-danger"> Remove</th>
+                </tr>
+                {% endfor %}
+  
+
+        </div>
+    </div>
+    {% else %}
+      <h3> Check </h3>
+    {% endif %}
+ </div>
+</div>
+</body>
+</html>

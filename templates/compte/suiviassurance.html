@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+  <title>Suivi Assurance</title>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>How to add & remove table rows</title>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+        rel="stylesheet"
+      />
+
+        <img src="{% static 'img/Kipina.png' %}" style="margin-bottom: auto;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" href="{% url 'Suivi_Fotfait' %}" > return </span>
+        </button>
+  
+      <style>
+        body {
+          font-family: "Roboto", sans-serif;
+        }
+        h1 {
+          text-align: center;
+        }
+        table,
+        form {
+          width: 500px;
+          margin: 20px auto;
+        }
+        table {
+          border-collapse: collapse;
+          text-align: center;
+        }
+        table td,
+        table th {
+          border: solid 1px black;
+        }
+        label,
+        input {
+          display: block;
+          margin: 10px 0;
+          font-size: 20px;
+        }
+        button {
+          display: block;
+        }
+      </style>
+    </head>
+    <body>
+
+ <h1 class="card-title" style="text-align: center; background-color: rgb(63, 172, 154);"> Suivi pour la service  'Assurance' : </h1>
+
+ <form>
+  <div class="input-row">
+    <label for="url"> Mois </label>
+   
+    <select id="url" class='form-control'>
+<option value='Janvier'>Janvier</option>
+<option value='février'>février</option>
+<option value='Mars'>Mars</option>
+<option value='Avril'>Avril</option>
+<option value='Mai'>Mai</option>
+<option value='Juin'>Juin</option>
+<option value='Juillet'>Juillet</option>
+<option value='Aout'>Aout</option>
+<option value='Septembre'>Septembre</option>
+<option value='Octobre'>Octobre</option>
+<option value='Novembre'>Novembre</option>
+<option value='Decembre'>Decembre</option>
+</select>
+  </div>
+  <div class="input-row">
+    <label for="website"> Type de service choisi </label>
+  
+    <select id="website" class='form-control'>
+<option value='Oui'>Oui</option>
+<option value='Non'>Non</option>
+
+</select>
+  </div>
+  <button>Submit</button>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Mois</th>
+      <th>Type de service choisi</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script>
+  const formEl = document.querySelector("form");
+  const tbodyEl = document.querySelector("tbody");
+  const tableEl = document.querySelector("table");
+  function onAddWebsite(e) {
+    e.preventDefault();
+    const website = document.getElementById("website").value;
+    const url = document.getElementById("url").value;
+    tbodyEl.innerHTML += `
+        <tr>
+            <td>${url}</td>
+            <td>${website}</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+    `;
+  }
+
+  function onDeleteRow(e) {
+    if (!e.target.classList.contains("deleteBtn")) {
+      return;
+    }
+
+    const btn = e.target;
+    btn.closest("tr").remove();
+  }
+
+  formEl.addEventListener("submit", onAddWebsite);
+  tableEl.addEventListener("click", onDeleteRow);
+ 
+</script> 
+    </body>
+  </html>
